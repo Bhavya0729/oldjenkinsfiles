@@ -1,0 +1,49 @@
+@Library('sharedlib') _
+pipeline
+{
+    agent any
+    stages
+    {
+        stage('call the sum function')
+        {
+            steps
+            {
+                script
+                {
+                    mathy.sum(100,200)
+                } 
+               } 
+                }
+                stage('call the sub function')
+        {
+            steps
+            {
+                script
+                {
+                    mathy.sub(500,400)
+                } 
+               } 
+                }
+                
+        stage('call the mult function')
+        {
+            steps
+            {
+                script
+                {
+                    mathy.mult(200,200)
+                } 
+               } 
+                }
+        stage('call the div function')
+        {
+            steps
+            {
+                script
+                {
+                    mathy.div(600,200)
+                } 
+             } 
+      }
+         }
+    }
