@@ -1,0 +1,32 @@
+node('built-in')
+{
+stage('continuous download')
+{
+   git branch: 'main', url: 'https://github.com/Bhavya0729/Maven.git'
+}
+stage('continuous build')
+{
+    sh 'mvn package'
+}
+stage('continous deployment')
+{
+   sh '''
+            scp /var/lib/jenkins/workspace/declarativepipeline-java/Helloworld.java \
+            ubuntu@172.31.44.38:/home/ubuntu/bhav/Helloworld.java
+        '''
+}
+stage('continous testing')
+{
+    sh """
+  javac /var/lib/jenkins/workspace/declarativepipeline-java/Helloworld.java
+  java -cp /var/lib/jenkins/workspace/declarativepipeline-java Helloworld
+"""
+}
+  stage('continous release')
+{
+ sh '''
+            scp /var/lib/jenkins/workspace/declarativepipeline-java/Helloworld.java \
+            ubuntu@172.31.42.163:/home/ubuntu/bhav/Helloworld.java
+        '''
+}
+}
