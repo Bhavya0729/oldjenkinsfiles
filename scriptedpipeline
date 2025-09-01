@@ -1,0 +1,23 @@
+node('built-in')
+{
+stage('continuous download')
+{
+    echo "continuous download "
+}
+stage('continuous build') 
+{
+    echo "continuous build"
+}
+stage('continuous deployment') 
+{
+    echo "continuous deployment"
+}
+stage('continuous test') 
+{
+    echo "continuous test"
+}
+stage('continuous release') 
+{
+    echo "continuous release"
+}
+}
