@@ -1,0 +1,28 @@
+pipeline
+{
+agent any
+  stages
+    {
+      stage ('continuous download')
+        {
+            steps
+            {
+             echo  'continuous download'
+            }
+       }
+      stage ('continuous build')
+        {
+            steps
+            {
+                echo 'continuous build'
+            }
+       }
+       stage ('continuous deployment ')
+        {
+            steps
+            {
+                echo 'continuous deployment'
+            }
+        }
+     }
+ }
